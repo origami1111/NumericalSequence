@@ -1,33 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace NumericalSequence
 {
     class NumericalSequence
     {
-        private uint n;
-        private uint m;
+        private StringBuilder sequence;
+        private uint length;
+        private uint minPow;
 
         public NumericalSequence() { }
-        public NumericalSequence(uint n, uint m)
+        public NumericalSequence(uint length, uint minPow)
         {
-            this.n = n;
-            this.m = m;
+            this.length = length;
+            this.minPow = minPow;
         }
-        public void printRange()
+        public override string ToString()
         {
-            Console.WriteLine("Ряд чисел: ");
+            return (sequence.ToString());
+        }
+        public void CreateSequence()
+        {
+            sequence = new StringBuilder();
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < length; i++)
             {
-                if (Math.Pow(i, 2) > m)
-                    Console.Write(i + ",");
+                if (Math.Pow(i, 2) > minPow)
+                {
+                    sequence.Append(i + ",");
+                }
             }
 
-            Console.WriteLine();
+            if(sequence.Length == 0)
+            {
+                sequence.Append($"Числа ряда меньше заданного квадрата {minPow}");
+            }
         }
     }
 }
