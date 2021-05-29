@@ -6,7 +6,7 @@ namespace NumericalSequence
     {
         static void Main(string[] args)
         {
-            ConsoleController consoleController = new ConsoleController();
+            ConsoleController consoleController = new ConsoleController(args);
             consoleController.Start();
 
             Console.WriteLine("Программа завершена");

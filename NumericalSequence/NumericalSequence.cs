@@ -33,7 +33,7 @@ namespace NumericalSequence
 
             if(sequence.Length == 0)
             {
-                sequence.Append($"Числа ряда меньше заданного квадрата {minPow}");
+                sequence.Append($"Не существует числ ряда длиной {length} меньше заданного квадрата {minPow}");
             }
         }
     }
