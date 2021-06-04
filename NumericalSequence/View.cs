@@ -4,6 +4,7 @@ namespace NumericalSequence
 {
     class View
     {
+        private NumericalSequence numericalSequence;
         private void PrintTask()
         {
             Console.WriteLine("==========================================================================================================");
@@ -47,7 +48,14 @@ namespace NumericalSequence
             }
         }
 
-        public uint GetLengthSequence()
+        public void PrintSequence()
+        {
+            numericalSequence = new NumericalSequence(GetLengthSequence(), GetMinPow());
+            numericalSequence.CreateSequence();
+            Console.WriteLine(numericalSequence);
+        }
+
+        private uint GetLengthSequence()
         {
             uint length;
 
@@ -67,7 +75,7 @@ namespace NumericalSequence
 
             return length;
         }
-        public uint GetMinPow()
+        private uint GetMinPow()
         {
             uint minPow;
 

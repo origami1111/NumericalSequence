@@ -1,10 +1,8 @@
-﻿using System;
-
+﻿
 namespace NumericalSequence
 {
     class ConsoleController
     {
-        private NumericalSequence numericalSequence;
         private View view;
         private string[] args;
 
@@ -16,9 +14,7 @@ namespace NumericalSequence
         {
             view = new View();
             view.CheckArguments(args);
-            numericalSequence = new NumericalSequence(view.GetLengthSequence(), view.GetMinPow());
-            numericalSequence.CreateSequence();
-            Console.WriteLine(numericalSequence);
+            view.PrintSequence();
         }
     }
 }

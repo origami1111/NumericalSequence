@@ -9,7 +9,6 @@ namespace NumericalSequence
         private uint length;
         private uint minPow;
 
-        public NumericalSequence() { }
         public NumericalSequence(uint length, uint minPow)
         {
             this.length = length;
@@ -23,17 +22,18 @@ namespace NumericalSequence
         {
             sequence = new StringBuilder();
 
-            for (int i = 0; i < length; i++)
+            for (int i = (int)Math.Sqrt(minPow); i < length; i++)
             {
-                if (Math.Pow(i, 2) > minPow)
-                {
-                    sequence.Append(i + ",");
-                }
+                sequence.Append(i + ",");
             }
 
-            if(sequence.Length == 0)
+            if (sequence.Length == 0)
             {
                 sequence.Append($"Не существует числ ряда длиной {length} меньше заданного квадрата {minPow}");
+            }
+            else
+            {
+                sequence.Remove(sequence.Length - 1, 1);
             }
         }
     }
