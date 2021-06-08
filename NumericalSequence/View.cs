@@ -50,20 +50,20 @@ namespace NumericalSequence
 
         public void PrintSequence()
         {
-            numericalSequence = new NumericalSequence(GetLengthSequence(), GetMinPow());
+            numericalSequence = new NumericalSequence(GetValue("Введите длину ряда: "), GetValue("Введите значение минимального квадрата: "));
             numericalSequence.CreateSequence();
             Console.WriteLine(numericalSequence);
         }
 
-        private uint GetLengthSequence()
+        private uint GetValue(string message)
         {
-            uint length;
+            uint value;
 
             while (true)
             {
-                Console.Write("Введите длину ряда: ");
+                Console.Write(message);
 
-                if((!uint.TryParse(Console.ReadLine(), out length)) || length == 0)
+                if ((!uint.TryParse(Console.ReadLine(), out value)) || value == 0)
                 {
                     Console.WriteLine($"Введите число в диапазоне [1;{uint.MaxValue}]");
                 }
@@ -73,27 +73,7 @@ namespace NumericalSequence
                 }
             }
 
-            return length;
-        }
-        private uint GetMinPow()
-        {
-            uint minPow;
-
-            while (true)
-            {
-                Console.Write("Введите значение минимального квадрата: ");
-
-                if ((!uint.TryParse(Console.ReadLine(), out minPow)) || minPow == 0)
-                {
-                    Console.WriteLine($"Введите число в диапазоне [1;{uint.MaxValue}]");
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            return minPow;
+            return value;
         }
     }
 }
